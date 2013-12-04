@@ -1,5 +1,7 @@
 <?php
 
+namespace Tumblr;
+
 /**
  * Class OAuthException
  */

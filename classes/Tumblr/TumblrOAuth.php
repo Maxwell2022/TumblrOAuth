@@ -3,11 +3,10 @@
 /*
  * Abraham Williams (abraham@abrah.am) http://abrah.am
  *
- * The first PHP Library to support OAuth for Tumblr's REST API.  (Originally for Twitter, modified for Tumblr by Lucas)
+ * The first PHP Library to support OAuth for Tumblr's REST API.
+ * (Originally for Twitter, modified for Tumblr by Lucas)
  */
-
-/* Load OAuth lib. You can find it at http://oauth.net */
-require_once('OAuth.php');
+namespace Tumblr;
 
 /**
  * Tumblr OAuth class
@@ -44,12 +43,6 @@ class TumblrOAuth
     function authenticateURL() { return 'http://www.tumblr.com/oauth/authorize'; }
     function authorizeURL()    { return 'http://www.tumblr.com/oauth/authorize'; }
     function requestTokenURL() { return 'http://www.tumblr.com/oauth/request_token'; }
-
-    /**
-     * Debug helpers
-     */
-    function lastStatusCode() { return $this->http_status; }
-    function lastAPICall() { return $this->last_api_call; }
 
     /**
      * construct TumblrOAuth object

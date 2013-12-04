@@ -1,9 +1,12 @@
 {
     "name": "maxwell2022/tumblroauth",
+    "homepage": "https://github.com/Maxwell2022/TumblrOAuth",
     "require": {
         "php": ">=5.3.0"
     },
     "autoload": {
-        "classmap": ["tumblroauth"]
+        "psr-0": {
+            "Tumblr": "classes/"
+        }
     }
 }
