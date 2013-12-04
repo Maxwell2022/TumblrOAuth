@@ -5,7 +5,7 @@
 session_start();
 
 // Include the TumblrOAuth library
-require_once('tumblroauth/tumblroauth.php');
+require_once('tumblroauth/TumblrOAuth.php');
 
 // Define the needed keys
 $consumer_key = "YOUR CONSUMER KEY GOES HERE";
@@ -49,5 +49,3 @@ default:
     echo 'Could not connect to Tumblr. Refresh the page or try again later.';
 }
 exit();
-
-?>
