@@ -87,11 +87,11 @@ get saved in your database but for this example we are just using sessions.
 
 9) And finally we can make requests authenticated as the user. You can GET, POST, and DELETE API
 methods. Directly copy the path from the API documentation and add an array of any parameter
-you wish to include for the API method such as curser or in_reply_to_status_id.
+you wish to include for the API method.
 
-    $account = $connection->get('account/verify_credentials');
-    $status = $connection->post('statuses/update', array('status' => 'Text of status here', 'in_reply_to_status_id' => 123456));
-    $status = $connection->delete('statuses/destroy/12345');
+    $user = $connection->get('user/info');
+    $status = $connection->post('{base-hostname}/post', array('type'=>'text','title'=>'Test Title','body'=>'Test body'));
+    $status = $connection->post('{base-hostname}/post/delete', array('id'=>123456));
 
 Contributors
 ============
