@@ -1,5 +1,6 @@
 This API is based on https://github.com/kertz/twitteroauth
-I've forked it to add composer support
+I've forked to add composer support
+Initial modification has been done by Lucas
 
 TumblrOAuth
 ------------
