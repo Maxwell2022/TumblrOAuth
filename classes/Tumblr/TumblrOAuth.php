@@ -13,28 +13,61 @@ namespace Tumblr;
  */
 class TumblrOAuth
 {
-    /* Contains the last HTTP status code returned. */
+    /**
+     * @var string Contains the last HTTP status code returned.
+     */
     public $http_code;
-    /* Contains the last API call. */
+
+    /**
+     * @var string Contains the last API call.
+     */
     public $url;
-    /* Set up the API root URL. */
+
+    /**
+     * @var string Set up the API root URL.
+     */
     public $host = "http://api.tumblr.com/v2/";
-    /* Set timeout default. */
+
+    /**
+     * @var int Set timeout default.
+     */
     public $timeout = 30;
-    /* Set connect timeout. */
+
+    /**
+     * @var int Set connect timeout.
+     */
     public $connecttimeout = 30;
-    /* Verify SSL Cert. */
+
+    /**
+     * @var bool Verify SSL Certificate
+     */
     public $ssl_verifypeer = FALSE;
-    /* Respons format. */
+
+    /**
+     * @var string Response format
+     */
     public $format = 'json';
-    /* Decode returned json data. */
+
+    /**
+     * @var bool Decode returned json data
+     */
     public $decode_json = TRUE;
-    /* Contains the last HTTP headers returned. */
+
+    /**
+     * @var array Contains the last HTTP headers returned
+     */
     public $http_info;
-    /* Set the useragnet. */
+
+    /**
+     * @var string Set the user agent
+     */
     public $useragent = 'TumblrOAuth v0.2.0-beta2';
-    /* Immediately retry the API call if the response was not successful. */
-    //public $retry = TRUE;
+
+    /**
+     * @var string User token
+     */
+    protected $token;
+
 
     /**
      * Set API URLS
@@ -277,5 +310,31 @@ class TumblrOAuth
             $this->http_header[$key] = $value;
         }
         return strlen($header);
+    }
+
+    /**
+     * Added to go well with the Symfony2 DIC
+     *
+     * @param  $oauth_token
+     * @param  $oauth_token_secret
+     * @return void
+     */
+    function setOAuthToken($oauth_token, $oauth_token_secret) {
+        $this->token = new OAuth\Consumer($oauth_token, $oauth_token_secret);
+    }
+
+    /**
+     * Avoid the notices if the token is not set
+     *
+     * @param  $request
+     * @return array
+     */
+    function getToken($request) {
+        $token = OAuth\Util::parse_parameters($request);
+        if (isset($token['oauth_token'], $token['oauth_token_secret'])) {
+            $this->token = new OAuth\Consumer($token['oauth_token'], $token['oauth_token_secret']);
+        }
+
+        return $token;
     }
 }
