@@ -63,7 +63,7 @@ in with Tumblr](https://dev.Tumblr.com/docs/auth/sign-Tumblr).
 
 4) You will now have a Tumblr URL that you must send the user to.
 
-    https://api.Tumblr.com/oauth/authenticate?oauth_token=xyz123
+    http://www.tumblr.com/oauth/authorize?oauth_token=zxy123
 
 5) The user is now on Tumblr.com and may have to login. Once authenticated with Tumblr they will
 will either have to click on allow/deny, or will be automatically redirected back to the callback.
@@ -71,8 +71,7 @@ will either have to click on allow/deny, or will be automatically redirected bac
 6) Now that the user has returned to callback.php and allowed access we need to build a new
 TumblrOAuth object using the temporary credentials.
 
-    $connection = new TumblrOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'],
-    $_SESSION['oauth_token_secret']);
+    $connection = new TumblrOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_REQUEST['oauth_token'], $_REQUEST['oauth_token_secret']);
 
 7) Now we ask Tumblr for long lasting token credentials. These are specific to the application
 and user and will act like password to make future requests. Normally the token credentials would

@@ -6,7 +6,9 @@
  * The first PHP Library to support OAuth for Tumblr's REST API.
  * (Originally for Twitter, modified for Tumblr by Lucas)
  */
-namespace Tumblr;
+namespace Maxwell\Tumblr;
+
+use Maxwell\OAuthClient\OAuth;
 
 /**
  * Tumblr OAuth class
