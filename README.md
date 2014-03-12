@@ -1,3 +1,5 @@
+[![Total Downloads](https://poser.pugx.org/maxwell2022/tumblroauth/downloads.png)](https://packagist.org/packages/maxwell2022/tumblroauth)
+
 This API is based on https://github.com/kertz/twitteroauth
 I've forked to add composer support
 Initial modification has been done by Lucas
